@@ -20,10 +20,10 @@ export class TodoController {
     return await this.queryBus.execute(new GetTodoByIdQuery(id))
   }
 
-  @Get('List/:page/:pageSize')
-  async List(@Param('page') page: number, @Param('pageSize') pageSize: number): Promise<Todo[]> {
-    return await this.queryBus.execute(new ListTodoQuery(page, pageSize));
-  }
+  // @Get('List/:page/:pageSize')
+  // async List(@Param('page') page: number, @Param('pageSize') pageSize: number): Promise<Todo[]> {
+  //   return await this.queryBus.execute(new ListTodoQuery(page, pageSize));
+  // }
 
   @Post(':note/:dueDate')
   async Add(@Param('note') note: string, @Param('dueDate') dueDate: number): Promise<string> {
