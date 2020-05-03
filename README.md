@@ -11,3 +11,7 @@ This is an example app, it uses:
   `docker-compose up -d`
   - Go to the backend folder
   `yarn run start`
+## Useful info
+  - Backend runs on `localhost:3000`
+  - Todo api `localhost:3000/todo`
+  - Swagger `localhost:3000/swagger`
