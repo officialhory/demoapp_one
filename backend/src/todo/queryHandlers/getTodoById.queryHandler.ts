@@ -12,7 +12,8 @@ export class GetTodoByIdQueryHandler implements IQueryHandler<GetTodoByIdQuery> 
 
   public async execute(query: GetTodoByIdQuery) : Promise<Todo>{
     console.log(`id: ${query.id}`)
+    const e = await this.tdrs.getAsync(query.id);
 
-    return await this.tdrs.getAsync(query.id);
+    return new Todo(e.id, e.note, e.dueDate);
   }
 }
