@@ -13,13 +13,10 @@ export class ListTodoQueryHandler implements IQueryHandler<ListTodoQuery> {
   ) {}
 
   public async execute(query: ListTodoQuery) : Promise<Pagination<TodoEntity>>{
-    console.log(`page: ${query.page}, page size: ${query.limit}`)
-    // const one = new Todo('', 'sample text one', Date.now());
-    // const two =  new Todo('', 'sample text two', Date.now());
+    console.log(`[List] page: ${query.page}, page size: ${query.limit}`)
 
-    // return [one, two]
     const page = query.page;
     const limit = query.limit;
-    return await this.tdrs.listAsync({page, limit})
+    return await this.tdrs.listAsync({page, limit});
   }
 }
