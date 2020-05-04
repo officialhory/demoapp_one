@@ -2,6 +2,8 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { TodoEntity } from "./todoEntity";
 import { Repository } from "typeorm";
+import {paginate, Pagination, IPaginationOptions} from 'nestjs-typeorm-paginate';
+
 
 @Injectable()
 export class TodoRepoService {
@@ -14,6 +16,13 @@ export class TodoRepoService {
       return null;
     });
     return e;
+  }
+
+  public listAsync(opt: IPaginationOptions): Promise<Pagination<TodoEntity>> {
+    const qb = this.todoRepo.createQueryBuilder('c');
+    qb.orderBy('c.id', 'DESC');
+
+    return paginate<TodoEntity>(qb, opt);
   }
   
   public async addAsync(id: string, note: string, dueDate: number) {
