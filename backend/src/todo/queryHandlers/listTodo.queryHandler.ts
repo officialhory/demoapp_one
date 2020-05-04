@@ -1,4 +1,3 @@
-import { Todo } from "../models/ToDo";
 import { ListTodoQuery } from "../queries/listTodo.query";
 import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { TodoRepoService } from "src/repo/todoRepo.Service";
